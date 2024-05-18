@@ -1,76 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdinasir Mohamed Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdinasir Mohamed - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="build/styles.css" rel="stylesheet">
+  <style>
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Section transition effects */
+    section {
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom button styling */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--light-purple);
+      color: var(--dark-purple);
+      font-weight: 700;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--dark-purple);
+      color: var(--light-purple);
+      transform: scale(1.05);
+    }
+
+    /* Navbar sticky */
+    .navbar-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: var(--dark-purple);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-sticky.scrolled {
+      background-color: rgba(45, 42, 74, 0.9);
+    }
+
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+    }
+
+    .mobile-menu-button {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .mobile-menu-button span {
+      height: 3px;
+      width: 25px;
+      background: var(--light-purple);
+      margin-bottom: 4px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: flex;
+      }
+
+      .mobile-menu.open nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mobile-menu-button.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .mobile-menu-button.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-button.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+
+    /* Footer styling */
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+    }
+
+    footer .social-links a:hover {
+      transform: scale(1.2);
+    }
+
+    footer .social-links img {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Icons styling */
+    .icons img {
+      width: 40px;
+      height: 40px;
+      margin: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .icons img:hover {
+      transform: scale(1.2);
+    }
+
+    /* About section styling */
+    .about-description {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      color: #e0e0e0;
+    }
+
+    .certification {
+      max-width: 200px;
+      text-align: center;
+    }
+
+    .certification img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Abdinasir Mohamed</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="bg-dark-purple text-white font-sans leading-relaxed">
 
-    <main>
-        <section id="about" class="section">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>I am a highly motivated and collaborative individual eager to delve into the exciting realms of IoT embedded systems, embedded software, and robotics. I am passionate about continuous learning and thrive on exploring new frontiers in these innovative technologies. Currently, I am keen to expand my knowledge and skills in IoT embedded systems development driven by a strong desire to master these cutting-edge disciplines.</p>
-            </div>
-        </section>
+  <!-- Welcome Page -->
+  <section id="welcome" class="h-screen flex flex-col items-center justify-center text-center">
+    <div class="animate-bounce">
+      <img src="images/logo.png" alt="Logo" class="w-32 h-32 mb-4 mx-auto">
+      <h1 class="text-5xl font-extrabold text-light-purple mb-4">Welcome to My Portfolio!</h1>
+      <p class="text-2xl">👋 Hi there! I am Abdinasir Mohamed</p>
+      <div class="mt-6">
+        <a href="#home" class="btn">Enter</a>
+      </div>
+    </div>
+  </section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="project">
-                    <h3>SmartToday e-learning application</h3>
-                    <p>Designed and developed an e-learning application using Python (Flask), HTML, and CSS.</p>
-                </div>
-                <div class="project">
-                    <h3>UN SDG Software System</h3>
-                    <p>Developed and designed a webapp using TypeScript, HTML, CSS, and JavaScript.</p>
-                </div>
-            </div>
-        </section>
+  <!-- Navbar -->
+  <header id="home" class="navbar-sticky">
+    <div class="container mx-auto py-4 flex justify-between items-center">
+      <a href="#welcome" class="text-3xl font-extrabold text-light-purple">AM</a>
+      <nav>
+        <ul class="flex space-x-6 text-lg">
+          <li><a href="#about" class="hover:text-gray-300 transition duration-300">About</a></li>
+          <li><a href="#projects" class="hover:text-gray-300 transition duration-300">Projects</a></li>
+          <li><a href="#skills" class="hover:text-gray-300 transition duration-300">Skills</a></li>
+          <li><a href="#contact" class="hover:text-gray-300 transition duration-300">Contact</a></li>
+          <li><a href="#cv" class="hover:text-gray-300 transition duration-300">CV</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="mobile-menu">
+      <nav>
+        <ul class="flex flex-col space-y-4 text-lg">
+          <li><a href="#about" class="hover:text-gray-300 transition duration-300">About</a></li>
+          <li><a href="#projects" class="hover:text-gray-300 transition duration-300">Projects</a></li>
+          <li><a href="#skills" class="hover:text-gray-300 transition duration-300">Skills</a></li>
+          <li><a href="#contact" class="hover:text-gray-300 transition duration-300">Contact</a></li>
+          <li><a href="#cv" class="hover:text-gray-300 transition duration-300">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        <section id="skills" class="section">
-            <div class="container">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Java, Python, Eclipse</li>
-                    <li>Basic understanding of C, C++, C#</li>
-                    <li>Object-oriented programming principles</li>
-                    <li>SCRUM and Agile methodologies</li>
-                </ul>
-            </div>
-        </section>
+  <!-- About Section -->
+  <section id="about" class="container mx-auto py-20 text-center mt-20">
+    <h2 class="text-4xl font-semibold mb-6">About Me</h2>
+    <p class="about-description mx-auto max-w-2xl mb-10">
+      I am a highly motivated and collaborative individual eager to delve into the exciting realms of IoT embedded systems, embedded software, and robotics. With a strong foundation in computer science, I have developed a keen interest in exploring how technology can be harnessed to create innovative solutions. My journey has equipped me with a diverse skill set in various programming languages and frameworks, allowing me to adapt to new challenges with ease.
+    </p>
+    <h3 class="text-3xl font-semibold mb-6">Programming Languages</h3>
+    <div class="icons flex justify-center mb-10">
+      <img src="images/java.svg" alt="Java">
+      <img src="images/python.svg" alt="Python">
+      <img src="images/c++.svg" alt="C++">
+      <img src="images/csharp.svg" alt="C#">
+      <img src="images/typescript.svg" alt="TypeScript">
+      <img src="images/html.svg" alt="HTML">
+      <img src="images/css.svg" alt="CSS">
+      <img src="images/javascript.svg" alt="JavaScript">
+    </div>
+    <h3 class="text-3xl font-semibold mb-6">Certifications</h3>
+    <div class="certifications flex flex-wrap justify-center">
+      <div class="certification bg-gray-800 text-white p-4 m-2 rounded-lg shadow-md">
+        <img src="images/certification1.png" alt="Certification 1" class="mb-2">
+        <p>Certification Name 1</p>
+      </div>
+      <div class="certification bg-gray-800 text-white p-4 m-2 rounded-lg shadow-md">
+        <img src="images/certification2.png" alt="Certification 2" class="mb-2">
+        <p>Certification Name 2</p>
+      </div>
+      <div class="certification bg-gray-800 text-white p-4 m-2 rounded-lg shadow-md">
+        <img src="images/certification3.png" alt="Certification 3" class="mb-2">
+        <p>Certification Name 3</p>
+      </div>
+    </div>
+  </section>
 
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>Email: <a href="mailto:Abdinasirm2003@gmail.com">Abdinasirm2003@gmail.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/abdinasir-mohamed-357537254/" target="_blank">LinkedIn Profile</a></p>
-                <p>GitHub: <a href="https://github.com/Abdinasir03" target="_blank">GitHub Profile</a></p>
-            </div>
-        </section>
-    </main>
+  <!-- Projects Section -->
+  <section id="projects" class="container mx-auto py-20 text-center bg-light-purple text-dark-purple rounded-lg shadow-lg">
+    <h2 class="text-4xl font-semibold mb-10">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-gray-800 text-white p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold mb-4">E-Learning Application</h3>
+        <p>Designed and developed an e-learning application using Python (Flask), HTML, and CSS.</p>
+        <img src="images/Screenshot (284).png" alt="E-Learning Application Screenshot" class="mt-4 rounded shadow">
+      </div>
+      <div class="bg-gray-800 text-white p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold mb-4">UN SDG Software System</h3>
+        <p>Developed and designed web app using TypeScript, HTML, CSS, and JavaScript for university project.</p>
+        <img src="images/Screenshot (169).png" alt="UN SDG Software System Screenshot" class="mt-4 rounded shadow">
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Abdinasir Mohamed</p>
-        </div>
-    </footer>
+  <!-- Skills Section -->
+  <section id="skills" class="container mx-auto py-20 text-center">
+    <h2 class="text-4xl font-semibold mb-6">Skills</h2>
+    <ul class="mx-auto max-w-2xl list-disc list-inside text-left space-y-2">
+      <li>Strong understanding of Java, Python, and Eclipse development environments.</li>
+      <li>Basic understanding of C, C++, and C# programming languages.</li>
+      <li>Knowledgeable in object-oriented programming principles, encapsulation, and polymorphism.</li>
+      <li>Experienced with traditional software development methodologies.</li>
+      <li>Familiar with SCRUM and Agile methodologies for project management.</li>
+    </ul>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Contact Section -->
+  <section id="contact" class="container mx-auto py-20 text-center">
+    <h2 class="text-4xl font-semibold mb-6">Contact</h2>
+    <form id="contact-form" class="mx-auto max-w-lg bg-gray-800 p-8 rounded-lg shadow-lg">
+      <div class="mb-6">
+        <label for="name" class="block text-left mb-2">Name</label>
+        <input type="text" id="name" class="w-full p-3 bg-gray-700 border border-gray-600 rounded" required>
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block text-left mb-2">Email</label>
+        <input type="email" id="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded" required>
+      </div>
+      <div class="mb-6">
+        <label for="message" class="block text-left mb-2">Message</label>
+        <textarea id="message" class="w-full p-3 bg-gray-700 border border-gray-600 rounded" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="w-full py-3 bg-light-purple text-dark-purple font-bold rounded btn">Send</button>
+    </form>
+  </section>
+
+  <!-- CV Section -->
+  <section id="cv" class="container mx-auto py-20 text-center">
+    <h2 class="text-4xl font-semibold mb-6">CV</h2>
+    <a href="Abdinasir-Mohamed-FlowCV-Resume-20240512 (1).pdf" download class="text-lg bg-light-purple text-dark-purple py-2 px-4 rounded font-bold btn">Download CV</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Abdinasir Mohamed</p>
+    <div class="social-links">
+      <a href="https://github.com/yourusername" target="_blank">
+        <img src="images/github.svg" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/yourusername/" target="_blank">
+        <img src="images/linkedin.svg" alt="LinkedIn">
+      </a>
+    </div>
+  </footer>
+
+  <script src="build/main.js"></script>
 </body>
 </html>

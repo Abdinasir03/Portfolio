@@ -1,0 +1,19 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "scripts": {
+      "build:css": "tailwindcss -i ./styles/styles.css -o ./build/styles.css",
+      "build:ts": "tsc",
+      "build": "npm run build:css && npm run build:ts",
+      "watch:css": "tailwindcss -i ./styles/styles.css -o ./build/styles.css --watch",
+      "watch:ts": "tsc --watch",
+      "start": "npm run build && browser-sync start --server --files 'build/*'"
+    },
+    "devDependencies": {
+      "tailwindcss": "^2.2.19",
+      "typescript": "^4.2.4",
+      "browser-sync": "^2.27.7"
+    },
+    "dependencies": {}
+  }
+  
