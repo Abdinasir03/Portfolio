@@ -61,17 +61,17 @@ To run this project locally, follow these steps:
 
 Install Dependencies
 
-bash
-Copy code
-npm install
-Build the Project
+2.  bash
+  Copy code
+  npm install
+  Build the Project
 
-bash
-Copy code
-npm run build
-Start the Development Server
+3. bash
+  Copy code
+  npm run build
+  Start the Development Server
 
-bash
-Copy code
-npm start
+4. bash
+  Copy code
+  npm start
 
