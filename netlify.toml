@@ -3,7 +3,7 @@
   publish = "build"
 
 [build.environment]
-  NODE_VERSION = "14.x"
+  NODE_VERSION = "16.x"
 
 [context.production.environment]
   NODE_ENV = "production"
