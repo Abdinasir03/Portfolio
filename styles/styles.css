@@ -1,47 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --dark-purple: #2d2a4a;
-    --light-purple: #6b5b95;
-  }
-
-  body {
-    background-color: var(--dark-purple);
-  }
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-@layer components {
-  .header, .footer, .section {
-    background-color: var(--dark-purple);
-  }
-
-  .text-light-purple {
-    color: var(--light-purple);
-  }
-
-  .bg-dark-purple {
-    background-color: var(--dark-purple);
-  }
+.animate-fade-in {
+    animation: fadeIn 2s ease-in-out;
 }
 
-@layer utilities {
-  .shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #6a0dad, #000);
+    color: #fff;
+}
 
-  .animate-bounce {
-    animation: bounce 2s infinite;
-  }
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+button, input, textarea {
+    font-family: inherit;
+}
+
+.btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--purple-700);
+    transform: scale(1.05);
+}
+
+.bg-light-purple {
+    background-color: #000000;
+}
+
+.text-dark-purple {
+    color: #2d2a4a;
+}
+
+.hidden {
+    display: none;
 }
