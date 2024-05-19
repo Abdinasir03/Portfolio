@@ -59,3 +59,19 @@ To run this project locally, follow these steps:
    git clone https://github.com/Abdinasir03/portfolio.git
    cd portfolio
 
+Install Dependencies
+
+2.  bash
+  Copy code
+  npm install
+  Build the Project
+
+3. bash
+  Copy code
+  npm run build
+  Start the Development Server
+
+4. bash
+  Copy code
+  npm start
+
