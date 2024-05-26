@@ -14,8 +14,20 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: url('images/background.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background-color: #2d2a4a; /* Dark purple background color */
+
+       /* Section transition effects */
+    section {
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+  }
+
+  .section-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Section transition effects */
@@ -62,7 +74,7 @@
     }
 
     .animate-bounce {
-      animation: bounce 2s infinite;
+      animation: bounce 3s infinite;
     }
 
     @keyframes bounce {
@@ -181,6 +193,29 @@
 </head>
 <body class="bg-dark-purple text-white font-sans leading-relaxed">
 
+   <!-- GameBoy Section -->
+   <section id="gameboy-container" class="h-screen flex items-center justify-center bg-dark-purple">
+    <div id="gameboy" class="p-4 rounded-lg shadow-lg">
+      <div id="screen" class="bg-green-200 h-48 w-64 mb-4 p-2 rounded-lg flex items-center justify-center">
+        <div class="text-center text-gray-800 font-mono text-2xl game-font">
+          <ul id="game-menu">
+            <li class="menu-item" data-target="#welcome">Welcome</li>
+            <li class="menu-item" data-target="#about">About</li>
+            <li class="menu-item" data-target="#projects">Projects</li>
+            <li class="menu-item" data-target="#skills">Skills</li>
+            <li class="menu-item" data-target="#contact">Contact</li>
+            <li class="menu-item" data-target="#cv">CV</li>
+          </ul>
+        </div>
+      </div>
+      <div id="buttons" class="flex justify-around">
+        <button id="select-button" class="bg-gray-600 p-2 rounded-full w-16 h-16">A</button>
+        <button class="bg-gray-600 p-2 rounded-full w-16 h-16">B</button>
+      </div>
+    </div>
+  </section>
+  
+  
   <!-- Welcome Page -->
   <section id="welcome" class="h-screen flex flex-col items-center justify-center text-center">
     <div class="animate-bounce">
@@ -258,20 +293,22 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="container mx-auto py-20 text-center bg-dark-purple text-dark-purple rounded-lg shadow-lg">
-    <h2 class="text-4xl font-semibold mb-10">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-gray-800 text-white p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-bold mb-4">E-Learning Application</h3>
-        <p>Designed and developed an e-learning application using Python (Flask), HTML, and CSS.</p>
-        <img src="images/Screenshot (276).png" alt="E-Learning Application Screenshot" class="mt-4 rounded shadow">
-      </div>
-      <div class="bg-gray-800 text-white p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-bold mb-4">UN SDG Software System</h3>
-        <p>Developed and designed web app using TypeScript, HTML, CSS, and JavaScript for university project.</p>
-        <img src="images/Screenshot_138.png" alt="UN SDG Software System Screenshot" class="mt-4 rounded shadow">
-      </div>
+<section id="projects" class="container mx-auto py-20 text-center bg-dark-purple rounded-lg shadow-lg">
+  <h2 class="text-4xl font-semibold mb-10 text-white">Projects</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-md">
+      <h3 class="text-2xl font-bold mb-4">E-Learning Application</h3>
+      <p>Designed and developed an e-learning application using Python (Flask), HTML, and CSS.</p>
+      <img src="images/Screenshot (276).png" alt="E-Learning Application Screenshot" class="mt-4 rounded shadow">
     </div>
+    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-md">
+      <h3 class="text-2xl font-bold mb-4">UN SDG Software System</h3>
+      <p>Developed and designed web app using TypeScript, HTML, CSS, and JavaScript for university project.</p>
+      <img src="images/Screenshot_138.png" alt="UN SDG Software System Screenshot" class="mt-4 rounded shadow">
+    </div>
+  </div>
+</section>
+
   </section>
 
   <!-- Skills Section -->

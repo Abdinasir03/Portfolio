@@ -10,9 +10,8 @@
     "start": "npm run build && browser-sync start --server --files 'build/*'"
   },
   "devDependencies": {
+    "browser-sync": "^2.27.7",
     "tailwindcss": "^2.2.19",
-    "typescript": "^4.2.4",
-    "browser-sync": "^2.27.7"
-  },
-  "dependencies": {}
+    "typescript": "^4.2.4"
+  }
 }
